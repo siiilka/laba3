@@ -1,5 +1,4 @@
-#ifndef PUBLICATION_H
-#define PUBLICATION_H
+#pragma once
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -34,5 +33,3 @@ int compareByPages(const Publication* a, const Publication* b);
 
 void copyPublication(Publication* dest, const Publication* src);
 bool isValidPublication(const Publication* pub);
-
-#endif
