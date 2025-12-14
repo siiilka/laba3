@@ -56,3 +56,14 @@ void stack_swap(Stack* stack, size_t index1, size_t index2);
 
 StackElement* stack_to_array(const Stack* stack);
 void stack_from_array(Stack* stack, StackElement* array, size_t size);
+
+
+
+
+
+//доп функции на будущее
+//void stack_reserve(Stack* stack, size_t new_capacity);
+
+//bool stack_full(const Stack* stack);
+
+//void stack_copy(Stack* dest, const Stack* src);
