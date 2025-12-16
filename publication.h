@@ -26,6 +26,10 @@ int printPublicationAsCSV(const Publication* pub, char* buffer, size_t bufferSiz
 
 void printPublicationFormatted(FILE* stream, const Publication* pub);
 
+void printTableHeader(FILE* stream);
+
+void printTableFooter(FILE* stream);
+
 void generateRandomPublication(Publication* pub);
 
 int compareByTitle(const Publication* a, const Publication* b);
@@ -37,3 +41,4 @@ int compareByPages(const Publication* a, const Publication* b);
 
 void copyPublication(Publication* dest, const Publication* src);
 bool isValidPublication(const Publication* pub);
+
