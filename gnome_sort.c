@@ -3,16 +3,11 @@
 
 void gnome_sort(Stack* stack, Comparator cmp, bool ascending) 
 {
-    if (stack == NULL || cmp == NULL) 
-    {
-        return;
-    }
+{
+    if (!stack || !cmp) return;
     
     size_t n = stack_size(stack);
-    if (n <= 1) 
-    {
-        return; 
-    }
+    if (n <= 1) return;
     
     size_t i = 0;
     
@@ -24,27 +19,19 @@ void gnome_sort(Stack* stack, Comparator cmp, bool ascending)
             continue;
         }
         
-        //Publication prev = stack_get (stack, i-1);
-        //Publication curr = stack_get (stack, i);
+        StackElement* prev = &stack->data[i - 1];
+        StackElement* curr = &stack->data[i];
         
-        //if (cmp(&prev, &curr) <= 0) 
-        //{
-        //    i++;
-        //} else 
-        //{
-        //    stack_swap(stack, i-1, i);
-        //   if (i > 0) 
-        //    {
-        //       i--;
-        //    }
-        //}
-    }
-    
-    if (!ascending) 
-    {
-        for (size_t j = 0; j < n/2; j++) 
+        int comparison = cmp(prev, curr);
+        
+        if ((ascending && comparison <= 0) || (!ascending && comparison >= 0)) 
         {
-            stack_swap(stack, j, n-1-j);
+            i++;
+        } else 
+        {
+            stack_swap(stack, i - 1, i);
+            i--;
         }
     }
+}
 }
