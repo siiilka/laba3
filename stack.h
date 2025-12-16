@@ -4,7 +4,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 
-typedef Publication* StackElement;
+typedef Publication StackElement;
 
 typedef struct 
 {
@@ -27,43 +27,16 @@ StackElement stack_pop(Stack* stack);
 
 StackElement stack_top(const Stack* stack);
 
-
-
-
-
 StackElement stack_get(const Stack* stack, size_t index);
-
-StackElement* stack_begin(Stack* stack);
-StackElement* stack_end(Stack* stack);
-
-
-StackElement* stack_next(Stack* stack, StackElement* current);
-StackElement* stack_prev(Stack* stack, StackElement* current);
-
-
-void stack_insert_front(Stack* stack, StackElement element);
-void stack_insert_back(Stack* stack, StackElement element);
-void stack_insert_at(Stack* stack, size_t index, StackElement element);
-
-
-StackElement stack_remove_front(Stack* stack);
-StackElement stack_remove_back(Stack* stack);
-StackElement stack_remove_at(Stack* stack, size_t index);
-
+void stack_set(Stack* stack, size_t index, StackElement element);
 
 void stack_swap(Stack* stack, size_t index1, size_t index2);
 
+StackElement* stack_begin(Stack* stack);
+StackElement* stack_end(Stack* stack);
+StackElement* stack_next(Stack* stack, StackElement* current);
+StackElement* stack_prev(Stack* stack, StackElement* current);
 
-StackElement* stack_to_array(const Stack* stack);
-void stack_from_array(Stack* stack, StackElement* array, size_t size);
+void stack_insert_at(Stack* stack, size_t index, StackElement element);
 
-
-
-
-
-//доп функции на будущее
-//void stack_reserve(Stack* stack, size_t new_capacity);
-
-//bool stack_full(const Stack* stack);
-
-//void stack_copy(Stack* dest, const Stack* src);
+StackElement stack_remove_at(Stack* stack, size_t index);
