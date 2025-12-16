@@ -1,4 +1,7 @@
 #include "publication.h"
+#include <time.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define NUM_TITLES 5
 #define NUM_SURNAMES 5
@@ -35,7 +38,7 @@ void generateRandomPublication(Publication* pub)
         "Красивая математика для первокурсников",
         "История зоологии — история животных",
         "Проблемы агрохимии в современном земледелии",
-        "Тайны вслеленной",
+        "Тайны вселенной",
         "Калибровка блока гироскопа"
     };
     
@@ -59,18 +62,23 @@ void generateRandomPublication(Publication* pub)
     };
     
     static int seeded = 0;
-    if (seeded == 0) {
+    if (seeded == 0) 
+    {
         srand((unsigned int)time(NULL)); 
         seeded = 1;
     }
 
-    strcpy(pub->title, titles[rand() % NUM_TITLES]);
+    strncpy(pub->title, titles [rand() % NUM_TITLES], sizeof(pub->title) - 1);
+    pub->title[sizeof(pub->title) - 1] = '\0';
     
-    strcpy(pub->author_surname, surnames[rand() % NUM_SURNAMES]);
+    strncpy(pub->author_surname, surnames[rand() % NUM_SURNAMES], sizeof(pub->author_surname) - 1);
+    pub->author_surname[sizeof(pub->author_surname) - 1] = '\0';
     
-    strcpy(pub->author_initials, initials[rand() % NUM_INITIALS]);
+    strncpy(pub->author_initials, initials[rand() % NUM_INITIALS], sizeof(pub->author_initials) - 1);
+    pub->author_initials[sizeof(pub->author_initials) - 1] = '\0';
     
-    strcpy(pub->journal, journals[rand() % NUM_JOURNALS]);
+    strncpy(pub->journal, journals[rand() % NUM_JOURNALS], sizeof(pub->journal) - 1);
+    pub->journal[sizeof(pub->journal) - 1] = '\0';
     
     pub->year = MIN_YEAR + rand() % YEAR_RANGE;
     
