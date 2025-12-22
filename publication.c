@@ -17,7 +17,6 @@ bool publication_is_valid(const Publication* pub)
         return false;
     }
     
-    /* Простые проверки */
     if (pub->title[0] == '\0' || 
         pub->author_surname[0] == '\0' ||
         pub->author_initials[0] == '\0' ||
