@@ -2,11 +2,11 @@
 
 #include "publication.h"
 
-typedef int (*Comparator)(const Publication*, const Publication*);
+typedef int (*comparator_func)(const Publication*, const Publication*);
 
-int compareByTitle(const Publication* a, const Publication* b);
-int compareByAuthor(const Publication* a, const Publication* b);
-int compareByYear(const Publication* a, const Publication* b);
-int compareByCitations(const Publication* a, const Publication* b);
-int compareByVolume(const Publication* a, const Publication* b);
-int compareByPages(const Publication* a, const Publication* b);
+int compare_title(const Publication* a, const Publication* b);
+int compare_author(const Publication* a, const Publication* b);
+int compare_year(const Publication* a, const Publication* b);
+int compare_citations(const Publication* a, const Publication* b);
+int compare_volume(const Publication* a, const Publication* b);
+int compare_pages(const Publication* a, const Publication* b);
