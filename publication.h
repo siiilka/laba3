@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <stdbool.h>
 #include <stdio.h>
 #include <stddef.h>
@@ -12,17 +11,16 @@ typedef struct
     char author_initials[10];
     char journal[150];
 
-    int year;
-    int volume;
+    unsigned short year;  
+    unsigned short volume;
     bool is_rinc;
-    int page_count;
-
-    int citations;
+    unsigned short page_count;
+    unsigned int citations;  
 } Publication;
 
-int parsePublicationFromCSV(const char* csvLine, Publication* pub);
+int parsePublicationFromCSV(const char* csv_line, Publication* pub);
 
-int printPublicationAsCSV(const Publication* pub, char* buffer, size_t bufferSize);
+int printPublicationAsCSV(const Publication* pub, char* buffer, size_t buffer_size);
 
 void printPublicationFormatted(FILE* stream, const Publication* pub);
 
